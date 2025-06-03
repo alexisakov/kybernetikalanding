@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometric Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles complementing Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Tailwind classes bg-black text-neutral-300 handle base colors */
+        }
+
+        .tile {
+            /* Base styling for tiles, further enhanced by Tailwind */
+            /* Tailwind classes used: w-40 h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-4 cursor-pointer */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            animation: pulseBorder 3s infinite linear; /* Continuous subtle animation */
+        }
+
+        /* Keyframes for the subtle border pulsing animation */
+        @keyframes pulseBorder {
+            0%, 100% {
+                border-color: #3f3f46; /* Equivalent to Tailwind's neutral-700 */
+            }
+            50% {
+                border-color: #737373; /* Equivalent to Tailwind's neutral-500, for a subtle glow */
+            }
+        }
+
+        .tile:hover {
+            animation-play-state: paused; /* Pause the pulse animation on hover */
+            border-color: #ffffff; /* White border on hover */
+            color: #ffffff; /* White text on hover */
+            transform: scale(1.08) translateY(-6px); /* Scale up and lift */
+            box-shadow: 0 12px 28px rgba(200, 200, 200, 0.1); /* Softer, more prominent shadow */
+        }
+
+        .tile:hover svg {
+            stroke: #ffffff; /* Change icon color to white on hover */
+        }
+
+        /* Container for the rows of tiles to ensure proper centering and spacing */
+        .tile-rows-container {
+            /* This container will be centered by the main flexbox properties */
+        }
+
+        /* Styling for the rows holding the tiles */
+        .tile-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem; /* 20px gap, same as Tailwind's gap-5 */
+        }
+
+        /* Margin for the bottom row */
+        .bottom-tile-row {
+            margin-top: 1.25rem; /* 20px margin, same as Tailwind's mt-5 */
+        }
+
+    </style>
+</head>
+<body class="bg-black text-neutral-300 flex flex-col min-h-screen items-center antialiased">
+
+    <header class="w-full py-10 md:py-16">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">Explore Our Core Elements</h1>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center w-full px-4">
+        <div class="tile-rows-container">
+            <div class="tile-row">
+                <div class="tile w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-3 sm:p-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-2 text-neutral-400 transition-colors duration-300 ease-in-out"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <span class="text-base sm:text-lg font-semibold">Book</span>
+                </div>
+                <div class="tile w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-3 sm:p-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-2 text-neutral-400 transition-colors duration-300 ease-in-out">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <path d="M12 17h.01"></path>
+                    </svg>
+                    <span class="text-base sm:text-lg font-semibold">Q&A</span>
+                </div>
+                <div class="tile w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-3 sm:p-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-2 text-neutral-400 transition-colors duration-300 ease-in-out">
+                        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                    <span class="text-base sm:text-lg font-semibold">Data</span>
+                </div>
+            </div>
+            <div class="tile-row bottom-tile-row">
+                <div class="tile w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-3 sm:p-4 cursor-pointer">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-2 text-neutral-400 transition-colors duration-300 ease-in-out">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+                    </svg>
+                    <span class="text-base sm:text-lg font-semibold">Events</span>
+                </div>
+                <div class="tile w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 bg-neutral-900 border border-neutral-700 rounded-md flex flex-col items-center justify-center text-center p-3 sm:p-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-2 text-neutral-400 transition-colors duration-300 ease-in-out">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polygon points="2 17 12 22 22 17"></polygon>
+                        <polygon points="2 12 12 17 22 12"></polygon>
+                    </svg>
+                    <span class="text-base sm:text-lg font-semibold">Models</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-8 mt-10 md:mt-16">
+        <p class="text-sm text-neutral-500 text-center">&copy; 2025 Geometric Designs Inc. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
